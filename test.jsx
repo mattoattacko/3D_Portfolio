@@ -1,18 +1,78 @@
-<div
-className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
->
-<div className='flex flex-col justify-center items-center mt-5'>
-  <div className='w-5 h-5 rounded-full bg-[#915EFF]' />
-  <div className='w-1 sm:h-80 h-40 violet-gradient' />
-</div>
+import React, { Suspense, useEffect, useState } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
-<div>
-  <h1 className={`${styles.heroHeadText} text-white`}>
-    Hi, I'm <span className='text-[#915EFF]'>Adrian</span>
-  </h1>
-  <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-    I develop 3D visuals, user <br className='sm:block hidden' />
-    interfaces and web applications
-  </p>
-</div>
-</div>
+import CanvasLoader from "../Loader";
+
+const Computers = ({ isMobile }) => {
+  const computer = useGLTF("./desktop_pc/scene.gltf");
+
+  return (
+    <mesh>
+      <hemisphereLight intensity={0.15} groundColor='black' />
+      <spotLight
+        position={[-20, 50, 10]}
+        angle={0.12}
+        penumbra={1}
+        intensity={1}
+        castShadow
+        shadow-mapSize={1024}
+      />
+      <pointLight intensity={1} />
+      <primitive
+        object={computer.scene}
+        scale={isMobile ? 0.7 : 0.75}
+        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
+        rotation={[-0.01, -0.2, -0.1]}
+      />
+    </mesh>
+  );
+};
+
+const ComputersCanvas = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Add a listener for changes to the screen size
+    const mediaQuery = window.matchMedia("(max-width: 500px)");
+
+    // Set the initial value of the `isMobile` state variable
+    setIsMobile(mediaQuery.matches);
+
+    // Define a callback function to handle changes to the media query
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    // Add the callback function as a listener for changes to the media query
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+    // Remove the listener when the component is unmounted
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
+
+  return (
+    <Canvas
+      frameloop='demand'
+      shadows
+      dpr={[1, 2]}
+      camera={{ position: [20, 3, 5], fov: 25 }}
+      gl={{ preserveDrawingBuffer: true }}
+    >
+      <Suspense fallback={<CanvasLoader />}>
+        <OrbitControls
+          enableZoom={false}
+          maxPolarAngle={Math.PI / 2}
+          minPolarAngle={Math.PI / 2}
+        />
+        <Computers isMobile={isMobile} />
+      </Suspense>
+
+      <Preload all />
+    </Canvas>
+  );
+};
+
+export default ComputersCanvas;

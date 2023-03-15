@@ -32,11 +32,12 @@ const Computers = () => {
 // The Computer // 
 // explained at ~50min https://www.youtube.com/watch?v=0fYi8SGA20k
 const ComputersCanvas = () => {
-  return (
+    return (
     <Canvas
       frameloop='demand'
       shadows
       camera={{ position: [20, 3, 5], fov: 25 }} //x, y, z axis. field of view
+      dpr={[1, 2]}
       gl={{ preserveDrawingBuffer: true }}
     >
       {/* loader while model is loading */}
@@ -51,7 +52,7 @@ const ComputersCanvas = () => {
 
       <Preload all />
     </Canvas>
-  )
-}
+  );
+};
 
 export default ComputersCanvas
