@@ -5,6 +5,7 @@ import { motion } from 'framer-motion' //for the animation on the cards
 import { styles } from '../styles'
 import { services } from '../constants'
 import { fadeIn, textVariant } from '../utils/motion'
+import { SectionWrapper } from '../hoc'
 
 const ServiceCard = ({ index, title, icon }) => {
   return (
@@ -77,4 +78,5 @@ const About = () => {
   )
 }
 
-export default About
+//we wrap our About section with the SectionWrapper HOC so we can keep the content off of the left margin of the screen
+export default SectionWrapper(About, 'about')
