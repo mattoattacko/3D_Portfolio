@@ -13,7 +13,7 @@ const SectionWrapper = (Component, idName) =>
         variants={staggerContainer()} //animation for the section
         initial='hidden' //start hidden
         whileInView='show' //show when in view
-        viewport={{ once: true, amount: 0.25 }} //only animate when 25% of the section is in view
+        viewport={{ once: true, amount: 0.25 }} //only animate for 0.25 seconds
         className={`${styles.padding} max-w-7xl mx-auto relative z-0`}
       >
         <span

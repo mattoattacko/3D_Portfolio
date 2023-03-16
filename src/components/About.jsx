@@ -79,4 +79,5 @@ const About = () => {
 }
 
 //we wrap our About section with the SectionWrapper HOC so we can keep the content off of the left margin of the screen
+//first we pass in the component we want to wrap, then we pass in the idName we want to use for the section
 export default SectionWrapper(About, 'about')
