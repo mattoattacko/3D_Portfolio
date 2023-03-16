@@ -1,8 +1,8 @@
 import React from 'react'
 import { Html, useProgress } from '@react-three/drei'
 
+// Loader component shows the progress of the load of the modal as a %
 const Loader = () => {
-
   const { progress } = useProgress();
 
   return (

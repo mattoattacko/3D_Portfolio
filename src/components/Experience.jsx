@@ -38,7 +38,7 @@ const ExperienceCard = ({ experience }) => {
         </p>
 
         {/* Bullet Points */}
-        {/* list-disc is the actual little circle */}
+        {/* "list-disc" is the actual little circle. "tracking-wider" adds some letter spacing */}
         <ul className='mt-5 list-disc ml-5 space-y-2'>
           {experience.points.map((point, index) => (
             <li
