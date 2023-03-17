@@ -30,7 +30,7 @@ const ExperienceCard = ({ experience }) => {
         <h3 className='text-white font-bold text-[24px]'>
           {experience.title}
         </h3>
-        <p 
+        <p
           className='text-secondary front-semibold text-[16px]'
           style={{ margin: 0 }}
         >
@@ -52,8 +52,6 @@ const ExperienceCard = ({ experience }) => {
       </div>
     </VerticalTimelineElement>
   )
-
-
 }
 
 
