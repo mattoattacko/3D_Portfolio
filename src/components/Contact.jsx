@@ -7,18 +7,60 @@ import { EarthCanvas } from './canvas'
 import { slideIn } from '../utils/motion'
 import { SectionWrapper } from '../hoc'
 
-const Contact = () => {  
+const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
     name: '',
     email: '',
     message: '',
   });
+
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {}
+  const handleChange = (e) => {
+    //get key press event and extract the target name and value
+    const { name, value } = e.target;
 
-  const handleSubmit = (e) => {}
+    setForm({ //we spread the entire form and update the name to the new value
+      ...form,
+      [name]: value
+    });
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true); //start sending of email
+
+    emailjs.send(
+      import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+      {
+        from_name: form.name,
+        to_name: 'Matthew',
+        from_email: form.email,        
+        to_email: 'matt.techstuff@gmail.com',
+        message: form.message,
+      },
+      import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY//emailjs key
+    )
+      .then(() => {
+        setLoading(false); //stop sending of email
+        alert('Thank you for your message! I will get back to you as soon as possible.');
+
+        //reset form
+        setForm({
+          name: '',
+          email: '',
+          message: '',
+        })
+      }, (error) => {
+        setLoading(false)
+
+        console.log(error)
+
+        alert('Something went wrong. Please try again later.')
+      })
+  }
 
 
   return (
@@ -44,7 +86,7 @@ const Contact = () => {
             <span className='text-white font-medium mb-4'>
               Your Name
             </span>
-            <input 
+            <input
               type='text'
               name='name'
               value={form.name}
@@ -72,7 +114,7 @@ const Contact = () => {
             <span className='text-white font-medium mb-4'>
               Your Message
             </span>
-            <textarea 
+            <textarea
               rows='7'
               name='message'
               value={form.message}
