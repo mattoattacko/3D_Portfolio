@@ -24,6 +24,10 @@ import {
   jobit,
   tripguide,
   threejs,
+  upwork,
+  iservice3,
+  restaurant,
+  admindashboard,
 } from "../assets";
 
 export const navLinks = [
@@ -43,19 +47,19 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Web Developer",
+    title: "Web Development",
     icon: web,
   },
   {
-    title: "React Developer",
+    title: "React Expert",
     icon: mobile,
   },
   {
-    title: "Backend Developer",
+    title: "Full Stack Engineer",
     icon: backend,
   },
   {
-    title: "Content Creator",
+    title: "Contracting Colossus",
     icon: creator,
   },
 ];
@@ -82,10 +86,6 @@ const technologies = [
     icon: reactjs,
   },
   {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
     name: "Tailwind CSS",
     icon: tailwind,
   },
@@ -98,10 +98,6 @@ const technologies = [
     icon: mongodb,
   },
   {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
     name: "git",
     icon: git,
   },
@@ -109,19 +105,15 @@ const technologies = [
     name: "figma",
     icon: figma,
   },
-  {
-    name: "docker",
-    icon: docker,
-  },
 ];
 
 const experiences = [
   {
     title: "Web Developer",
     company_name: "iService",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2022 - current",
+    icon: iservice3,
+    iconBg: "#E6DEDD",
+    date: "March 2022 - Present",
     points: [
       "Developing and maintaining web applications using React.js and other related technologies.",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
@@ -132,8 +124,8 @@ const experiences = [
   {
     title: "Software Engineer",
     company_name: "Orthogonal",
-    icon: tesla,
-    iconBg: "#E6DEDD",
+    icon: upwork,
+    iconBg: "#383E56",
     date: "Jan 2022 - Dec 2022",
     points: [
       "Developing and maintaining web applications using React.js and other related technologies.",
@@ -173,17 +165,17 @@ const experiences = [
 const testimonials = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
+      "I thought it was impossible to make a website as beautiful as our product, but Matt proved me wrong.",
     name: "Kris McNaka",
-    designation: "CFO",
+    designation: "Owner",
     company: "Kris Kritters",
     image: "https://randomuser.me/api/portraits/women/4.jpg",
   },
   {
     testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
+      "I've never met a web developer who truly cares about their clients' success like Matt does.",
     name: "Don Yi",
-    designation: "COO",
+    designation: "CTO",
     company: "West Coast Creatives",
     image: "https://randomuser.me/api/portraits/men/5.jpg",
   },
@@ -191,7 +183,7 @@ const testimonials = [
     testimonial:
       "After Matthew optimized our website, our traffic increased by 50%. We can't thank them enough!",
     name: "Tatsu Pang",
-    designation: "CTO",
+    designation: "Senior Engineer",
     company: "Petrolnaut",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
@@ -199,7 +191,28 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Petrolnaut - Admin Dashboard",
+    description:
+      "Customizable web-based interface for managing and monitoring data and applications using React framework, ideal for real-time data management in organizations.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "restapi",
+        color: "green-text-gradient",
+      },
+      {
+        name: "scss",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: admindashboard,
+    source_code_link: "https://reactdashboardadmin.netlify.app/",
+  },
+  {
+    name: "Morent - Car Rental",
     description:
       "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
     tags: [
@@ -217,40 +230,19 @@ const projects = [
       },
     ],
     image: carrent,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/mattoattacko",
   },
   {
-    name: "Job IT",
+    name: "Gericht - Restaurant",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Gericht is a fine dining Asian fusion restaurant with a unique menu of traditional Asian flavors and contemporary techniques. Skilled chefs use fresh ingredients to create beautifully presented dishes.",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: jobit,
-    source_code_link: "https://github.com/",
-  },
-  {
-    name: "Trip Guide",
-    description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-    tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "supabase",
+        name: "javascript",
         color: "green-text-gradient",
       },
       {
@@ -258,8 +250,8 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
+    image: restaurant,
+    source_code_link: "https://gericht-renton.netlify.app/",
   },
 ];
 
